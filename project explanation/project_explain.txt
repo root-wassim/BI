@@ -1,0 +1,83 @@
+This project involves creating a complete Business Intelligence (BI) solution to analyze the performance of a fictional company called Northwind Traders, which specializes in importing and exporting food products.
+Below is the detailed explanation and methodology for carrying out the project, followed by the translation.
+Detailed Project Methodology: Realizing the BI Solution (The "How")
+The project follows a rigorous, multi-phased approach to transform disparate source data into actionable insights and visualizations. This process utilizes various tools, allowing for the comparison of analytical platform performance and the selection of the most suitable tools for visualization and interactivity.
+The entire process is broken down into four sequential phases:
+Phase 1: Data Extraction (E) and Anticipating Heterogeneity Challenges
+The project begins by extracting the pertinent data needed for analytical requirements from two highly heterogeneous sources of the Northwind database: one residing in SQL Server and the other in Access.
+The Source Data Landscape:
+• The SQL Server source contains 13 tables (relations), covering sales transactions, purchases, inventory, orders, and customer/employee information.
+• The Access source is significantly different, containing 20 tables, plus 27 macros, 43 forms, 15 reports, and 8 modules.
+Anticipating and Managing Data Challenges: Extraction must anticipate typical data quality and inconsistency problems, especially due to the variance between SQL Server and Access:
+• Schema Differences: Variances in field names or table/relation names.
+• Format Issues: Inconsistent date formats or encoding problems.
+• Data Quality: Duplicates, missing keys, inconsistent data (e.g., differing units of measurement for the same product), or poorly defined numeric types.
+• Access Macro Incompatibility: Macros in Access are not directly transferable or executable in other systems like SQL Server. If these macros contain data validation or transformation logic, that logic must be manually reproduced during the subsequent ETL process.
+Extraction Best Practice: To ensure better compatibility and smoother integration during the ETL stage, it is strongly advised to extract the tables from the Access database and save them as CSV files. This limits compatibility issues related to data types.
+Phase 2: Setting up the Homogeneous Data Container
+The objective of this phase is to prepare a single, standardized destination for the extracted data.
+• Action: A unified, homogeneous data repository named Global Northwind is established.
+• Tool Used: This repository is implemented using the SQL Server database management system (SGBD).
+• Purpose: This container will serve as the consolidated source for the visualization tool in Phase 4, ensuring all data conforms to a single model.
+Phase 3: Implementing the ETL Process (Transformation and Loading)
+This is the core phase where the data is cleansed, unified, and loaded into the target container.
+• Tool Used: Talend Open Studio for Data Integration is used to carry out the Extract, Transform, and Load (ETL) process.
+• Transformation Goal: The primary function of the ETL process is to conform the data from the two heterogeneous sources (SQL Server and Access) into the common, homogeneous model defined in the Global Northwind repository.
+• Transformation Tasks: During transformation, incompatible data elements are resolved. This often requires manually converting or adapting data formats (date, text, or numeric) to ensure consistency across the combined dataset.
+• Loading: The fully transformed and validated data is then loaded into the Global Northwind data repository.
+Phase 4: Generating Dashboards and Visualization
+Once the data is clean and centralized, it is ready for analytical exploitation and presentation.
+• Tool Used: Tableau Public is utilized to generate the analytical dashboards.
+• Analytical Objective: The main goal is to track and analyze the company’s commercial performance by visualizing Key Performance Indicators (KPIs).
+• KPIs Calculated and Visualized:
+    ◦ The total number of delivered orders.
+    ◦ The total number of orders not yet delivered.
+• Analysis Segmentation: These KPIs are segmented along three key analytical axes:
+    ◦ Customer: Identified by ID, name, city, and country.
+    ◦ Employee: The employee responsible for the order (identified by ID and name).
+    ◦ Date: Measured and analyzed in the format of month and year.
+• Impact: These visualizations help identify commercial trends, measure personnel performance, and evaluate the quality of the delivery service.
+
+--------------------------------------------------------------------------------
+Translation of the Project Explanation
+This project is a complete Business Intelligence (BI) solution aimed at analyzing the performance of a fictional company called Northwind Traders, a company that imports and exports food products. The main objective is to track and analyze the company's commercial performance, focusing on Key Performance Indicators (KPIs) that evaluate its commercial and logistical efficiency.
+Here is a detailed explanation of the project, its phases, and its sources:
+1. Analytical Objective and Key Performance Indicators (KPIs)
+The project seeks to centralize and utilize data for analytical purposes.
+The Key Performance Indicators (KPIs) required to be calculated and visualized include in particular:
+1. The number of delivered orders.
+2. The number of orders not yet delivered.
+Analysis Axes: These indicators will be segmented and analyzed according to three main dimensions:
+• Customer: Identified by ID, name, city, and country.
+• Employee: The employee responsible for processing the order, along with their ID and name.
+• Date: The date must be analyzed in the month and year format.
+Benefit of the Indicators: These indicators will allow the identification of commercial trends, the measurement of staff performance, and the evaluation of delivery service quality.
+2. Heterogeneous Data Sources
+The project relies on two distinct and heterogeneous sources of the Northwind database:
+A. SQL Server Source
+• This is the original Northwind sample database for the Microsoft SQL Server database management system.
+• The database in SQL Server consists of 13 relations (tables).
+• The relational schema includes core tables such as Suppliers, Products, Categories, Customers, Territories, Orders, Employees, and Order Details.
+• The data covers sales transactions between the company and its clients, as well as purchase details between the company and its suppliers.
+• The database structure indicates that Northwind procures products from Suppliers across various Categories. It distributes its products over a wide geographical area represented by the "Territories" table, where its Customers are located. Each Order is assigned to an Employee for processing and to a Shipper organization to ensure delivery.
+B. Access Source
+• The second source is the Northwind database under the Access system.
+• This data shows significant disparity, containing 20 tables, compared to the 13 relations in SQL Server.
+• In addition to tables, the Access database contains 27 queries/macros, 9 employees, 43 forms, 4 roles, 15 reports, and 8 modules.
+Challenges of Heterogeneity
+Due to the presence of heterogeneous sources, typical issues must be anticipated and addressed during the Extraction, Transformation, and Loading (ETL) process:
+• Schema Differences: Differences in field names, table names, or relation names.
+• Format Issues: Inconsistent date formats or encoding.
+• Data Quality: Missing values, duplicates, data inconsistencies (e.g., differing units of measure for the same product), or poorly defined numeric types.
+• Access Constraints: Access macros are not directly transferable or executable in other systems like SQL Server; any embedded validation or transformation logic must be manually reproduced in the ETL process.
+• Recommendation: It is highly recommended to extract Access tables as CSV files to ensure better compatibility and smoother integration in the ETL process, thereby mitigating data type compatibility issues.
+3. Project Execution Phases
+The project consists of four consecutive main phases:
+1. Data Extraction: Extracting relevant data that meets the analytical need from the two heterogeneous Northwind sources (SQL Server and Access).
+2. Setting up the Homogeneous Data Container: Establishing a unified and homogeneous data repository, named Global Northwind, using the SQL Server SGBD.
+3. Implementing the ETL Process: Applying the Extract, Transform, and Load (ETL) process to populate the Global Northwind data repository.
+    ◦ Tool Used: Talend Open Studio for Data Integration is used for this phase.
+    ◦ ETL Function: To transform and unify the heterogeneous sources into a common, homogeneous model.
+4. Generating Dashboards: Generating the dashboards and translating the data into visual representations.
+    ◦ Tool Used: Tableau Public is utilized to display and analyze the data.
+This multi-tool approach allows for the comparison of the performance of each analytical platform (e.g., comparing data handling in SQL Server and Access, then using ETL tools and dashboard tools), aiding in the selection of the most suitable platform based on visualization and interactivity needs.
