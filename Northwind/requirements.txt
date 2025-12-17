@@ -1,0 +1,11 @@
+pandas
+numpy
+sqlalchemy
+pyodbc
+matplotlib
+plotly
+geopandas
+jupyter
+seaborn
+openpyxl
+access-parser
