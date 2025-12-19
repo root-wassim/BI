@@ -3,6 +3,9 @@ import os
 import glob
 from config import RAW_DIR, STAGING_DIR
 
+
+
+#root_waaim
 os.makedirs(STAGING_DIR, exist_ok=True)
 
 def clean_col_names(df):

@@ -2,8 +2,12 @@ import time
 import extract_data
 import transform_data
 import load_dwh
-import data_validator
 
+
+
+
+
+#root_waaim
 def main():
     start_time = time.time()
     print(" STARTING NORTHWIND ETL PIPELINE")
@@ -30,8 +34,7 @@ def main():
         print(f" CRITICAL ERROR in Loading: {e}")
         return
 
-    #  Validation
-    data_validator.validate_warehouse()
+    
 
     end_time = time.time()
     duration = end_time - start_time
